@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class FacebookHomePage extends StatefulWidget {
+  const FacebookHomePage({super.key});
+
   @override
   State<FacebookHomePage> createState() => _FacebookHomePageState();
 }
