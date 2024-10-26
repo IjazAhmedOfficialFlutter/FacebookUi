@@ -25,7 +25,7 @@ class _VideoSliderPageState extends State<VideoSliderPage> {
     _youtubeControllers = videoIds
         .map((id) => YoutubePlayerController(
               initialVideoId: id,
-              flags: YoutubePlayerFlags(
+              flags: const YoutubePlayerFlags(
                 autoPlay: false,
                 mute: false,
               ),

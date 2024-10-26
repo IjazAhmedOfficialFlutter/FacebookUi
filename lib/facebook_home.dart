@@ -1,3 +1,4 @@
+import 'package:face_book_home_ui/reel_page.dart';
 import 'package:flutter/material.dart';
 
 class FacebookHomePage extends StatefulWidget {
@@ -119,7 +120,13 @@ class _FacebookHomePageState extends State<FacebookHomePage> {
                   TextButton.icon(
                     icon: const Icon(Icons.video_call, color: Colors.red),
                     label: const Text('Live'),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => VideoSliderPage(),
+                          ));
+                    },
                   ),
                   const VerticalDivider(width: 8),
                   TextButton.icon(
@@ -156,17 +163,48 @@ class _FacebookHomePageState extends State<FacebookHomePage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ListTile(
+            contentPadding: const EdgeInsets.all(8.0),
             leading: const CircleAvatar(
               backgroundImage: NetworkImage(
                   'https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg'),
             ),
-            title: Text('User $index',
-                style: const TextStyle(fontWeight: FontWeight.bold)),
-            subtitle: const Text('5 mins ago'),
+            title: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('User $index',
+                    style: const TextStyle(fontWeight: FontWeight.bold)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text('5 mins ago',
+                        style: TextStyle(color: Colors.grey, fontSize: 12)),
+                    Row(
+                      children: [
+                        IconButton(
+                          icon: const Icon(Icons.thumb_up_alt_outlined,
+                              color: Colors.blue),
+                          onPressed: () {},
+                        ),
+                        IconButton(
+                          icon: const Icon(Icons.comment_outlined,
+                              color: Colors.grey),
+                          onPressed: () {},
+                        ),
+                        IconButton(
+                          icon: const Icon(Icons.share_outlined,
+                              color: Colors.grey),
+                          onPressed: () {},
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
             trailing: const Icon(Icons.more_horiz),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Text(
               'This is a sample post content for post $index.',
               style: const TextStyle(fontSize: 16),
@@ -176,44 +214,82 @@ class _FacebookHomePageState extends State<FacebookHomePage> {
             height: 200,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: NetworkImage("${networkImage[index]}"
-                    // 'https://media.istockphoto.com/id/505239248/photo/humayun-tomb-new-delhi-india.jpg?s=1024x1024&w=is&k=20&c=eEvp7-HwZaY4itp3HAayDYdHPH_YSVDe9aLeHFI-A0w='
-                    ),
+                image: NetworkImage(networkImage[index]),
                 fit: BoxFit.cover,
               ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Row(
-                  children: [
-                    Icon(Icons.thumb_up, color: Colors.blue),
-                    SizedBox(width: 5),
-                    Text('Like'),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Icon(Icons.comment, color: Colors.grey[600]),
-                    const SizedBox(width: 5),
-                    const Text('Comment'),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Icon(Icons.share, color: Colors.grey[600]),
-                    const SizedBox(width: 5),
-                    const Text('Share'),
-                  ],
-                ),
-              ],
             ),
           ),
         ],
       ),
     );
   }
+
+// Widget _buildPost(BuildContext context, int index) {
+  //   return Container(
+  //     margin: const EdgeInsets.only(bottom: 10),
+  //     color: Colors.white,
+  //     child: Column(
+  //       crossAxisAlignment: CrossAxisAlignment.start,
+  //       children: [
+  //         ListTile(
+  //           leading: const CircleAvatar(
+  //             backgroundImage: NetworkImage(
+  //                 'https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg'),
+  //           ),
+  //           title: Text('User $index',
+  //               style: const TextStyle(fontWeight: FontWeight.bold)),
+  //           subtitle: const Text('5 mins ago'),
+  //           trailing: const Icon(Icons.more_horiz),
+  //         ),
+  //         Padding(
+  //           padding: const EdgeInsets.all(8.0),
+  //           child: Text(
+  //             'This is a sample post content for post $index.',
+  //             style: const TextStyle(fontSize: 16),
+  //           ),
+  //         ),
+  //         Container(
+  //           height: 200,
+  //           decoration: BoxDecoration(
+  //             image: DecorationImage(
+  //               image: NetworkImage("${networkImage[index]}"
+  //                   // 'https://media.istockphoto.com/id/505239248/photo/humayun-tomb-new-delhi-india.jpg?s=1024x1024&w=is&k=20&c=eEvp7-HwZaY4itp3HAayDYdHPH_YSVDe9aLeHFI-A0w='
+  //                   ),
+  //               fit: BoxFit.cover,
+  //             ),
+  //           ),
+  //         ),
+  //         Padding(
+  //           padding: const EdgeInsets.all(8.0),
+  //           child: Row(
+  //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //             children: [
+  //               const Row(
+  //                 children: [
+  //                   Icon(Icons.thumb_up, color: Colors.blue),
+  //                   SizedBox(width: 5),
+  //                   Text('Like'),
+  //                 ],
+  //               ),
+  //               Row(
+  //                 children: [
+  //                   Icon(Icons.comment, color: Colors.grey[600]),
+  //                   const SizedBox(width: 5),
+  //                   const Text('Comment'),
+  //                 ],
+  //               ),
+  //               Row(
+  //                 children: [
+  //                   Icon(Icons.share, color: Colors.grey[600]),
+  //                   const SizedBox(width: 5),
+  //                   const Text('Share'),
+  //                 ],
+  //               ),
+  //             ],
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 }
