@@ -10,7 +10,7 @@ class VideoSliderPage extends StatefulWidget {
 
 class _VideoSliderPageState extends State<VideoSliderPage> {
   List<String> videoIds = [
-    'nPt8bK2gbaU', // Example YouTube video IDs
+    'nPt8bK2gbaU',
     'F1B9Fk_SgI0',
     'q7wD_qpOU0k',
   ];
@@ -72,8 +72,7 @@ class _VideoSliderPageState extends State<VideoSliderPage> {
 class YoutubePlayerWidget extends StatelessWidget {
   final YoutubePlayerController controller;
 
-  const YoutubePlayerWidget({Key? key, required this.controller})
-      : super(key: key);
+  const YoutubePlayerWidget({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
