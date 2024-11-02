@@ -11,9 +11,7 @@ class SellingPage extends StatelessWidget {
         actions: [
           IconButton(
             icon: const Icon(Icons.filter_list),
-            onPressed: () {
-              // Add filter functionality
-            },
+            onPressed: () {},
           ),
         ],
       ),
@@ -70,9 +68,7 @@ class SellingPage extends StatelessWidget {
                     imageUrl: 'https://via.placeholder.com/150',
                     itemName: 'Item Name',
                     price: '\$50',
-                    onTap: () {
-                      // Navigate to item details
-                    },
+                    onTap: () {},
                   );
                 },
               ),
